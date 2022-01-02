@@ -7,6 +7,7 @@ FROM openjdk:17-jdk-alpine
 
 MAINTAINER VLssu, <vlssu@vlssu.com>
 
+RUN sed -i -e 's/http:/https:/' /etc/apk/repositories
 RUN apk add --no-cache --update curl ca-certificates openssl git tar python3 python3-dev python3-pip bash sqlite fontconfig \
     && adduser --disabled-password --home /home/container container
 
