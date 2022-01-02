@@ -5,7 +5,8 @@ cd /home/container
 java -version
 
 # Output Current Python Version
-python --version
+python3 --version
+pip3 --version
 
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
