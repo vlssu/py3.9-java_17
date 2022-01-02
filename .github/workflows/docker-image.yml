@@ -14,5 +14,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: 构建 Docker 镜像
+      run: docker build . --file Dockerfile --tag py3.9-java_17:$(date +%s)
