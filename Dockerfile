@@ -9,8 +9,8 @@ LABEL author="ValiantShishu" maintainer="vlssu@vlssu.com"
 
 RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
     && adduser --disabled-password --home /home/container container
-RUN apk add --no-cache python3 python3-dev py3-pip
-
+RUN apk add --no-cache python3 python3-dev
+RUN apk add --no-cache py3-pip
 USER container
 ENV  USER=container HOME=/home/container
 
