@@ -3,7 +3,7 @@
 # Environment: Java
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM python:3.9-alpine
+FROM ghcr.io/pterodactyl/yolks:python_3.9
 
 LABEL author="ValiantShishu" maintainer="vlssu@vlssu.com"
 
