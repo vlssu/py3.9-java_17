@@ -11,7 +11,7 @@ RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite
     && adduser --disabled-password --home /home/container container
 RUN apk add --no-cache python3 python3-dev
 RUN apk add --no-cache py3-pip
-RUN pip install mcdreforged -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip3 install mcdreforged -i https://pypi.tuna.tsinghua.edu.cn/simple
 USER container
 ENV  USER=container HOME=/home/container
 
