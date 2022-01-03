@@ -9,7 +9,7 @@ LABEL author="ValiantShishu" maintainer="vlssu@vlssu.com"
 
 RUN apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
     && adduser -D -h /home/container container
-RUN apk add openjdk-8-jdk
+RUN apk add openjdk-17-jdk
 RUN pip install mcdreforged -i https://pypi.tuna.tsinghua.edu.cn/simple
 USER container
 ENV  USER=container HOME=/home/container
