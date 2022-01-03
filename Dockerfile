@@ -7,6 +7,8 @@ FROM python:3.9-alpine
 
 LABEL author="ValiantShishu" maintainer="vlssu@vlssu.com"
 
+RUN echo  http://mirrors.aliyun.com/alpine/v3.7/main/ >> /etc/apk/repositories
+
 RUN apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
     && adduser -D -h /home/container container
 RUN apk add openjdk-17-jdk
