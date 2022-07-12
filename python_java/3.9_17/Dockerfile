@@ -28,7 +28,9 @@ LABEL       org.opencontainers.image.source="https://github.com/vlssu/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN 		apt-get update -y \
- 			&& apt-get install -y lsof curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
+ 			&& apt-get install -y lsof curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 software-properties-common \
+ 			&& add-apt-repository ppa:deadsnakes/ppa \
+ 			&& apt-get install python3.9 \
  			&& useradd -d /home/container -m container
 
 USER        container
