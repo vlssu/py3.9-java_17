@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH python:3
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.9-slim
 
 LABEL       author="VLssu" maintainer="vlssu@vlssu.com"
 
