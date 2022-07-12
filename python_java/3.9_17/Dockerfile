@@ -20,20 +20,19 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH python:3.9-slim
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.9-alpine
 
 LABEL       author="VLssu" maintainer="vlssu@vlssu.com"
 
 LABEL       org.opencontainers.image.source="https://github.com/vlssu/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN 		apt-get update -y \
- 			&& apt-get install -y lsof curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 zulu-17\
- 			&& useradd -d /home/container -m container
+RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata zulu-17 \
+				&& adduser -D -h /home/container container
 
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+CMD         [ "/bin/ash", "/entrypoint.sh" ]
