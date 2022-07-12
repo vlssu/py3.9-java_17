@@ -30,9 +30,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 RUN 		apt-get update -y \
  			&& apt-get install -y lsof curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 software-properties-common \
  			&& add-apt-repository ppa:deadsnakes/ppa \
- 			&& apt-get install python3.9 \
- 			&& curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
- 			&& python3.9 get-pip.py \
+ 			&& apt-get install python3.9 python3.9-pip\
  			&& useradd -d /home/container -m container
 
 USER        container
