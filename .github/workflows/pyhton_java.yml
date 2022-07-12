@@ -1,4 +1,4 @@
-name: build python java
+name: build java python
 on:
   workflow_dispatch:
   schedule:
@@ -7,10 +7,10 @@ on:
     branches:
       - master
     paths:
-      - pyhton_java/**
+      - java_pyhton/**
 jobs:
   push:
-    name: "yolks:python_${{ matrix.tag }}"
+    name: "yolks:java_python_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,9 +32,9 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./python_java
-          file: ./python_java/${{ matrix.tag }}/Dockerfile
+          context: ./java_python
+          file: ./java_python/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64, linux/arm64
           push: true
           tags: |
-            ghcr.io/vlssu/yolks:python_java_${{ matrix.tag }}
+            ghcr.io/vlssu/yolks:java_python_${{ matrix.tag }}
