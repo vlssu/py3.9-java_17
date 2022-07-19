@@ -9,7 +9,7 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-RUN         yarn create koishi /home/container -y && cd /home/container && \
+RUN         yarn create koishi . -y && cd /home/container && \
             sed -i '1 ihost: 0.0.0.0' koishi.yml && \
             yarn install \
  			&& useradd -d /home/container -m container
