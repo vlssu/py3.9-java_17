@@ -16,6 +16,6 @@ RUN         yarn create koishi /home/container -y && cd /home/container && \
             sed -i '1 ihost: 0.0.0.0' koishi.yml && \
             yarn install
 
-COPY 		./entrypoint.sh /entrypoint.sh
+COPY        ./../entrypoint.sh /entrypoint.sh
 
 CMD			[ "/bin/bash", "/entrypoint.sh" ]

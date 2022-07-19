@@ -14,6 +14,6 @@ RUN         yarn create koishi /home/container -y && cd /home/container && \
             yarn install \
  			&& useradd -d /home/container -m container
 
-COPY 		./entrypoint.sh /entrypoint.sh
+COPY        ./../entrypoint.sh /entrypoint.sh
 
 CMD			[ "/bin/bash", "/entrypoint.sh" ]
