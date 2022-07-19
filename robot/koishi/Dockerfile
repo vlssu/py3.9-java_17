@@ -5,14 +5,16 @@ LABEL       author="VLssu" maintainer="vlssu@vlssu.com"
 LABEL       org.opencontainers.image.source="https://github.com/vlssu/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
+RUN         apk add --no-cache tzdata \
+ 			&& adduser -D -h /home/container container
+
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-RUN         yarn create koishi . -y && cd /home/container && \
+RUN         yarn create koishi . -y && \
             sed -i '1 ihost: 0.0.0.0' koishi.yml && \
-            yarn install \
- 			&& useradd -d /home/container -m container
+            yarn install
 
 COPY        ./../entrypoint.sh /entrypoint.sh
 
